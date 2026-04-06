@@ -1,4 +1,5 @@
-﻿from fastapi import FastAPI, HTTPException
+﻿from typing import Optional
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import os
 import sys
@@ -14,7 +15,7 @@ app = FastAPI(title='Query Service')
 class QueryRequest(BaseModel):
     question:   str
     product_id: int = 1
-    aspect:     str = None
+    aspect:     Optional[str] = None
     top_k:      int = 5
 
 

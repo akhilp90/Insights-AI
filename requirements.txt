@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
+pandas
+openpyxl
+celery
+redis
+qdrant-client
+sentence-transformers
+transformers
+torch
+httpx
+python-jose[cryptography]
+bcrypt
+python-multipart

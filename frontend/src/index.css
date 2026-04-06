@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50:  #E6F1FB;
+  --color-primary-100: #B5D4F4;
+  --color-primary-400: #378ADD;
+  --color-primary-600: #185FA5;
+  --color-primary-800: #0C447C;
+  --color-primary-900: #042C53;
+}
+
+/* ── CSS variables: light defaults ── */
+:root {
+  --bg:          #F8F9FB;
+  --surface:     #ffffff;
+  --surface-2:   #f9fafb;
+  --border:      #f3f4f6;
+  --border-md:   #e5e7eb;
+  --text:        #1a1a1a;
+  --text-muted:  #6b7280;
+  --text-faint:  #9ca3af;
+  --input-bg:    #ffffff;
+  --input-text:  #111827;
+}
+
+/* ── CSS variables: dark overrides ── */
+.dark {
+  --bg:          #0f172a;
+  --surface:     #1e293b;
+  --surface-2:   #1a2540;
+  --border:      #334155;
+  --border-md:   #475569;
+  --text:        #f1f5f9;
+  --text-muted:  #94a3b8;
+  --text-faint:  #64748b;
+  --input-bg:    #1e293b;
+  --input-text:  #f1f5f9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Component classes using CSS variables ── */
+@layer components {
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+  }
+  .metric-card {
+    background: var(--surface-2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+  .input-base {
+    background: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--border-md);
+    border-radius: 0.5rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    outline: none;
+    width: 100%;
+  }
+  .input-base:focus {
+    border-color: #378ADD;
+  }
+  .input-base::placeholder {
+    color: var(--text-faint);
+  }
+  .badge-critical {
+    @apply bg-red-50 text-red-700 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+  .badge-moderate {
+    @apply bg-amber-50 text-amber-800 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+  .badge-stable {
+    @apply bg-green-50 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+  .btn-primary {
+    @apply bg-primary-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer;
+  }
+  .btn-primary:hover { background-color: #0C447C; }
+  .btn-secondary {
+    border: 1px solid var(--border-md);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    background: transparent;
+  }
+  .btn-secondary:hover { background: var(--surface-2); }
+}
+
+/* dark badge overrides */
+.dark .badge-critical { background: rgba(127,29,29,0.3); color: #fca5a5; }
+.dark .badge-moderate { background: rgba(120,53,15,0.3); color: #fcd34d; }
+.dark .badge-stable   { background: rgba(20,83,45,0.3);  color: #86efac; }
