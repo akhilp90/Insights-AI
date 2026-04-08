@@ -7,6 +7,7 @@ from services.preprocessing.cleaner import clean_text, is_valid_review
 from services.embedding.embedder import embed_and_store
 from services.nlp.absa import extract_aspects
 from services.pattern_detection.patterns import run_pattern_detection
+from services.causal.causal_engine import run_causal_analysis
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
@@ -146,6 +147,26 @@ def pattern_task(review_id: int):
             return
 
         run_pattern_detection(result.product_id, result.dataset_id)
+        causal_task.delay(review_id)
+
+    finally:
+        db.close()
+
+
+@celery_app.task(name='tasks.causal')
+def causal_task(review_id: int):
+    db = SessionLocal()
+    try:
+        result = db.execute(
+            text('SELECT product_id FROM reviews WHERE id = :id'),
+            {'id': review_id}
+        ).fetchone()
+
+        if not result:
+            print(f'[CAUSAL] review {review_id} not found')
+            return
+
+        run_causal_analysis(result.product_id, validate_with_llm=False)
 
     finally:
         db.close()

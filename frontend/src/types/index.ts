@@ -56,6 +56,44 @@ export interface ProductSummary {
   top_patterns: PatternSignal[];
 }
 
+// ── Causal inference types ──
+export interface CausalNode {
+  id: string;
+  label: string;
+  total: number;
+  neg_ratio: number;
+  pos_ratio: number;
+}
+
+export interface CausalEdge {
+  from: string;
+  to: string;
+  edge_type: string;
+  strength: number;
+  method: string;
+  validated: boolean;
+  reason: string;
+}
+
+export interface CausalGraph {
+  nodes: CausalNode[];
+  edges: CausalEdge[];
+}
+
+export interface FixSimulation {
+  aspect_fixed: string;
+  current_score: number;
+  predicted_score: number;
+  score_delta: number;
+  confidence: number;
+  affected_chain: string[];
+  details: Record<string, { neg_ratio_before: number; neg_ratio_after: number }>;
+}
+
+export interface FixRankings {
+  rankings: FixSimulation[];
+}
+
 export const getStatus = (score: number): StatusLevel => {
   if (score < 6.5) return 'Critical';
   if (score < 7.5) return 'Moderate';

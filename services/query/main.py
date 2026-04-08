@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 
 from services.query.retriever import retrieve_similar_reviews, fetch_pattern_signals, fetch_aspect_summary
 from services.query.prompt_builder import build_prompt
-from services.llm.llm_service import generate
+from services.llm.llm_service import generate, LLMError
 
 app = FastAPI(title='Query Service')
 
@@ -29,7 +29,11 @@ def query(req: QueryRequest):
         raise HTTPException(status_code=404, detail='No data found for this product')
 
     prompt = build_prompt(req.question, reviews, patterns, summary)
-    answer = generate(prompt)
+
+    try:
+        answer = generate(prompt)
+    except LLMError as e:
+        raise HTTPException(status_code=502, detail=str(e))
 
     return {
         'question':       req.question,

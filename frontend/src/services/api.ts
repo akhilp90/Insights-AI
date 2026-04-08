@@ -105,6 +105,27 @@ export const api = {
     return res.data;
   },
 
+  // Causal inference
+  getCausalGraph: async (productId: number) => {
+    const res = await gateway.get(`/products/${productId}/causal-graph`);
+    return res.data;
+  },
+
+  simulateFix: async (productId: number, aspect: string) => {
+    const res = await gateway.post(`/products/${productId}/fix-simulation`, { aspect });
+    return res.data;
+  },
+
+  getFixRankings: async (productId: number) => {
+    const res = await gateway.get(`/products/${productId}/fix-rankings`);
+    return res.data;
+  },
+
+  validateCausalEdges: async (productId: number) => {
+    const res = await gateway.post(`/products/${productId}/causal-validate`);
+    return res.data;
+  },
+
   askQuery: async (question: string, productId: number, aspect?: string) => {
     const body: Record<string, unknown> = {
       question,

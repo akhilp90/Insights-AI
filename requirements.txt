@@ -15,3 +15,5 @@ httpx
 python-jose[cryptography]
 bcrypt
 python-multipart
+numpy
+scipy

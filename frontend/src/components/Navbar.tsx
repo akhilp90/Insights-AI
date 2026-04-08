@@ -23,27 +23,34 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className='bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-700 px-8 py-3.5 flex items-center justify-between'>
-      <div className='cursor-pointer' onClick={() => navigate('/')}>
+    <nav className='sticky top-0 z-50 backdrop-blur-xl border-b px-8 py-3 flex items-center justify-between transition-colors duration-300 bg-white/80 dark:bg-slate-900/80 border-gray-100/60 dark:border-slate-700/40 shadow-[0_1px_3px_rgba(0,0,0,0.03)]'>
+      <div className='cursor-pointer flex items-center' onClick={() => navigate('/')}>
         <Logo />
       </div>
-      <div className='flex items-center gap-3'>
+      <div className='flex items-center gap-2.5'>
         {isAuthenticated ? (
           <>
-            <span className='text-sm text-gray-500 dark:text-slate-400'>{user?.email}</span>
-            <button className='btn-secondary' onClick={() => { logout(); navigate('/'); }}>
+            <div className='flex items-center gap-2 mr-1'>
+              <div className='w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center'>
+                <span className='text-xs font-semibold text-primary-700 dark:text-primary-400'>
+                  {user?.email?.charAt(0).toUpperCase()}
+                </span>
+              </div>
+              <span className='text-sm text-gray-500 dark:text-slate-400 hidden sm:inline'>{user?.email}</span>
+            </div>
+            <button className='btn-secondary text-xs px-4 py-2' onClick={() => { logout(); navigate('/'); }}>
               Log out
             </button>
           </>
         ) : (
           <>
-            <button className='btn-secondary' onClick={() => navigate('/login')}>Log in</button>
-            <button className='btn-primary' onClick={() => navigate('/signup')}>Get started</button>
+            <button className='btn-secondary text-xs px-4 py-2' onClick={() => navigate('/login')}>Log in</button>
+            <button className='btn-primary text-xs px-4 py-2' onClick={() => navigate('/signup')}>Get started</button>
           </>
         )}
         <button
           onClick={toggle}
-          className='w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 dark:border-slate-600 text-gray-500 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors'
+          className='w-8 h-8 flex items-center justify-center rounded-xl border border-gray-200 dark:border-slate-600 text-gray-400 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-600 dark:hover:text-slate-200 transition-all'
           title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           {theme === 'dark' ? <SunIcon /> : <MoonIcon />}

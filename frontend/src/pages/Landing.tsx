@@ -10,58 +10,63 @@ const Landing = () => {
 
       {/* ── Hero ── */}
       <section className='relative overflow-hidden'>
-        <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-primary-50 dark:bg-primary-900/20 opacity-40 blur-3xl -z-10' />
-        <div className='absolute top-40 right-0 w-[300px] h-[300px] rounded-full bg-blue-100 dark:bg-blue-900/20 opacity-30 blur-3xl -z-10' />
+        <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] rounded-full bg-primary-100/80 dark:bg-primary-900/20 blur-[120px] -z-10' />
+        <div className='absolute top-40 right-0 w-[500px] h-[500px] rounded-full bg-indigo-100/60 dark:bg-indigo-900/15 blur-[100px] -z-10' />
+        <div className='absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-violet-100/40 dark:bg-violet-900/10 blur-[100px] -z-10' />
 
-        <div className='max-w-4xl mx-auto text-center px-8 pt-24 pb-20'>
-          <div className='inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 text-xs font-medium px-4 py-1.5 rounded-full mb-6'>
-            <span className='w-1.5 h-1.5 bg-primary-600 dark:bg-primary-400 rounded-full animate-pulse' />
+        <div className='max-w-4xl mx-auto text-center px-8 pt-28 pb-24'>
+          <div className='inline-flex items-center gap-2 bg-primary-50/80 backdrop-blur-sm border border-primary-100/80 dark:border-primary-800/40 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-xs font-medium px-4 py-1.5 rounded-full mb-8 animate-fade-in'>
+            <span className='w-1.5 h-1.5 bg-primary-500 dark:bg-primary-400 rounded-full animate-pulse' />
             AI-powered product intelligence
           </div>
-          <h1 className='text-6xl font-semibold tracking-tight text-gray-900 dark:text-slate-50 mb-6 leading-[1.1]'>
-            Stop guessing what<br />customers <span className='text-primary-600 dark:text-primary-400'>actually think</span>
+          <h1 className='text-5xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-slate-50 mb-6 leading-[1.08] animate-fade-in delay-100'>
+            Stop guessing what<br />customers{' '}
+            <span className='bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-indigo-500 dark:from-primary-400 dark:to-indigo-400'>
+              actually think
+            </span>
           </h1>
-          <p className='text-gray-500 dark:text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed'>
+          <p className='text-gray-500 dark:text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in delay-200'>
             Insights reads thousands of reviews and tells you exactly which product features drive love
             and which cause churn — down to the specific aspect, with evidence.
           </p>
-          <div className='flex items-center justify-center gap-3'>
-            <button className='btn-primary text-base px-8 py-3.5' onClick={() => navigate('/signup')}>Start free →</button>
+          <div className='flex items-center justify-center gap-3 animate-fade-in delay-300'>
+            <button className='btn-primary text-base px-8 py-3.5' onClick={() => navigate('/signup')}>Start free</button>
             <button className='btn-secondary text-base px-8 py-3.5' onClick={() => navigate('/login')}>Sign in</button>
           </div>
-          <p className='text-xs text-gray-400 dark:text-slate-500 mt-4'>No credit card needed. Analyze your first product in under 2 minutes.</p>
+          <p className='text-xs text-gray-400 dark:text-slate-500 mt-5 animate-fade-in delay-400'>No credit card needed. Analyze your first product in under 2 minutes.</p>
         </div>
       </section>
 
       {/* ── Live demo preview ── */}
-      <section className='max-w-5xl mx-auto px-8 -mt-4 mb-20'>
-        <div className='bg-gray-900 rounded-2xl p-1.5 shadow-2xl'>
-          <div className='flex items-center gap-1.5 px-4 py-2.5'>
-            <div className='w-2.5 h-2.5 rounded-full bg-red-400' />
-            <div className='w-2.5 h-2.5 rounded-full bg-amber-400' />
-            <div className='w-2.5 h-2.5 rounded-full bg-green-400' />
-            <span className='text-[10px] text-gray-500 ml-2'>insights-ai — dashboard</span>
+      <section className='max-w-5xl mx-auto px-8 -mt-6 mb-24 relative animate-slide-up delay-400'>
+        <div className='absolute -inset-2 bg-gradient-to-r from-primary-400/40 to-indigo-500/40 rounded-[2rem] blur-xl -z-10' />
+        <div className='bg-gray-900/95 backdrop-blur-xl rounded-2xl p-1.5 shadow-2xl border border-white/5'>
+          <div className='flex items-center gap-1.5 px-4 py-3'>
+            <div className='w-2.5 h-2.5 rounded-full bg-red-400/80' />
+            <div className='w-2.5 h-2.5 rounded-full bg-amber-400/80' />
+            <div className='w-2.5 h-2.5 rounded-full bg-green-400/80' />
+            <span className='text-[10px] text-gray-500 ml-2 font-medium tracking-wide'>insights-ai — dashboard</span>
           </div>
           <div className='bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden'>
             <div className='p-6'>
-              <div className='flex gap-4 mb-4'>
+              <div className='flex gap-3 mb-4'>
                 {[
                   { label: 'Overall score', value: '7.8', cls: 'text-primary-600' },
                   { label: 'Reviews analyzed', value: '2,841', cls: 'text-gray-900 dark:text-slate-100' },
                   { label: 'Critical issues', value: '3', cls: 'text-red-600' },
                 ].map((m, i) => (
-                  <div key={i} className='w-40 bg-white dark:bg-slate-700 rounded-lg border border-gray-100 dark:border-slate-600 p-4'>
-                    <p className='text-[10px] text-gray-400 dark:text-slate-400 mb-1'>{m.label}</p>
-                    <p className={'text-2xl font-semibold ' + m.cls}>{m.value}</p>
+                  <div key={i} className='w-40 bg-white dark:bg-slate-700/60 rounded-xl border border-gray-100 dark:border-slate-600/50 p-4'>
+                    <p className='text-[10px] text-gray-400 dark:text-slate-400 mb-1 uppercase tracking-wider'>{m.label}</p>
+                    <p className={'text-2xl font-semibold tabular-nums ' + m.cls}>{m.value}</p>
                   </div>
                 ))}
-                <div className='flex-1 bg-white dark:bg-slate-700 rounded-lg border border-gray-100 dark:border-slate-600 p-4'>
-                  <p className='text-[10px] text-gray-400 dark:text-slate-400 mb-1'>Top insight</p>
-                  <p className='text-xs text-gray-700 dark:text-slate-300'>"Battery drain correlates with overheating in 73% of negative reviews"</p>
+                <div className='flex-1 bg-white dark:bg-slate-700/60 rounded-xl border border-gray-100 dark:border-slate-600/50 p-4'>
+                  <p className='text-[10px] text-gray-400 dark:text-slate-400 mb-1 uppercase tracking-wider'>Top insight</p>
+                  <p className='text-xs text-gray-700 dark:text-slate-300 leading-relaxed'>"Battery drain correlates with overheating in 73% of negative reviews"</p>
                 </div>
               </div>
-              <div className='bg-white dark:bg-slate-700 rounded-lg border border-gray-100 dark:border-slate-600 p-4'>
-                <p className='text-[10px] text-gray-400 dark:text-slate-400 font-medium mb-3'>ASPECT SENTIMENT BREAKDOWN</p>
+              <div className='bg-white dark:bg-slate-700/60 rounded-xl border border-gray-100 dark:border-slate-600/50 p-4'>
+                <p className='text-[10px] text-gray-400 dark:text-slate-400 font-semibold mb-3 uppercase tracking-wider'>Aspect Sentiment Breakdown</p>
                 {[
                   { name: 'Camera', pos: 82, neg: 18 },
                   { name: 'Battery Life', pos: 34, neg: 66 },
@@ -69,13 +74,13 @@ const Landing = () => {
                   { name: 'Performance', pos: 55, neg: 45 },
                   { name: 'Build Quality', pos: 78, neg: 22 },
                 ].map((a, i) => (
-                  <div key={i} className='flex items-center gap-3 mb-2 last:mb-0'>
+                  <div key={i} className='flex items-center gap-3 mb-2.5 last:mb-0'>
                     <span className='text-[11px] text-gray-600 dark:text-slate-300 w-24 font-medium'>{a.name}</span>
                     <div className='flex-1 flex gap-0.5 h-2 rounded-full overflow-hidden'>
-                      <div className='bg-green-500 rounded-l-full' style={{ width: a.pos + '%' }} />
-                      <div className='bg-red-400 rounded-r-full'   style={{ width: a.neg + '%' }} />
+                      <div className='bg-green-500 rounded-l-full transition-all' style={{ width: a.pos + '%' }} />
+                      <div className='bg-red-400 rounded-r-full transition-all' style={{ width: a.neg + '%' }} />
                     </div>
-                    <span className={'text-[10px] font-medium w-8 text-right ' + (a.neg > 50 ? 'text-red-600' : 'text-green-700')}>
+                    <span className={'text-[10px] font-semibold w-8 text-right tabular-nums ' + (a.neg > 50 ? 'text-red-600' : 'text-green-700 dark:text-green-400')}>
                       {a.neg > 50 ? a.neg + '%' : a.pos + '%'}
                     </span>
                   </div>
@@ -86,38 +91,50 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* ── Problem → Solution ── */}
-      <section className='max-w-5xl mx-auto px-8 pb-20'>
-        <div className='grid grid-cols-2 gap-12'>
+      {/* ── Problem / Solution ── */}
+      <section className='max-w-5xl mx-auto px-8 pb-24'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-16'>
           <div>
-            <p className='text-xs text-red-500 font-medium uppercase tracking-wider mb-3'>The problem</p>
-            <h2 className='text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-4'>You're drowning in reviews but starving for clarity</h2>
-            <div className='space-y-3'>
+            <div className='inline-flex items-center gap-2 bg-red-50 dark:bg-red-900/20 border border-red-100/80 dark:border-red-800/30 text-red-600 dark:text-red-400 text-xs font-medium px-3 py-1 rounded-full mb-4'>
+              The problem
+            </div>
+            <h2 className='text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-5 tracking-tight'>You're drowning in reviews but starving for clarity</h2>
+            <div className='space-y-4'>
               {[
                 'Star ratings tell you nothing about why customers are unhappy',
                 'Reading hundreds of reviews manually is slow and biased',
                 'Issues escalate to social media before your team even notices',
                 'Generic sentiment tools say "negative" but not what or why',
               ].map((p, i) => (
-                <div key={i} className='flex items-start gap-2.5'>
-                  <span className='text-red-400 mt-0.5 text-sm'>✕</span>
+                <div key={i} className='flex items-start gap-3'>
+                  <div className='w-5 h-5 rounded-full bg-red-50 dark:bg-red-900/30 flex items-center justify-center mt-0.5 flex-shrink-0'>
+                    <svg className='w-3 h-3 text-red-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
+                    </svg>
+                  </div>
                   <p className='text-sm text-gray-600 dark:text-slate-400 leading-relaxed'>{p}</p>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <p className='text-xs text-green-600 dark:text-green-400 font-medium uppercase tracking-wider mb-3'>The solution</p>
-            <h2 className='text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-4'>Insights breaks reviews down to the feature level</h2>
-            <div className='space-y-3'>
+            <div className='inline-flex items-center gap-2 bg-green-50 dark:bg-green-900/20 border border-green-100/80 dark:border-green-800/30 text-green-600 dark:text-green-400 text-xs font-medium px-3 py-1 rounded-full mb-4'>
+              The solution
+            </div>
+            <h2 className='text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-5 tracking-tight'>Insights breaks reviews down to the feature level</h2>
+            <div className='space-y-4'>
               {[
                 'Aspect-based analysis scores every feature — camera, battery, UX — individually',
                 'Root cause detection finds statistical correlations humans miss',
                 'Every insight links back to real customer quotes as evidence',
                 'Ask anything in plain English and get data-grounded answers',
               ].map((p, i) => (
-                <div key={i} className='flex items-start gap-2.5'>
-                  <span className='text-green-600 dark:text-green-400 mt-0.5 text-sm'>✓</span>
+                <div key={i} className='flex items-start gap-3'>
+                  <div className='w-5 h-5 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mt-0.5 flex-shrink-0'>
+                    <svg className='w-3 h-3 text-green-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2.5} d='M5 13l4 4L19 7' />
+                    </svg>
+                  </div>
                   <p className='text-sm text-gray-600 dark:text-slate-400 leading-relaxed'>{p}</p>
                 </div>
               ))}
@@ -127,27 +144,33 @@ const Landing = () => {
       </section>
 
       {/* ── How it works ── */}
-      <section className='bg-gray-50 dark:bg-slate-800 border-y border-gray-100 dark:border-slate-700'>
-        <div className='max-w-5xl mx-auto px-8 py-20'>
-          <p className='text-xs text-primary-600 dark:text-primary-400 font-medium uppercase tracking-wider text-center mb-3'>How it works</p>
-          <h2 className='text-3xl font-semibold text-gray-900 dark:text-slate-100 text-center mb-4'>From raw reviews to boardroom-ready insights</h2>
-          <p className='text-gray-500 dark:text-slate-400 text-center max-w-xl mx-auto mb-14'>Upload a CSV, and our pipeline does the rest. No training, no config, no waiting for a data team.</p>
-          <div className='grid grid-cols-4 gap-6'>
+      <section className='border-y border-gray-100/80 dark:border-slate-700/40 bg-gray-50/80 dark:bg-slate-800/40'>
+        <div className='max-w-5xl mx-auto px-8 py-24'>
+          <div className='text-center mb-16'>
+            <div className='inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/20 border border-primary-100/80 dark:border-primary-800/30 text-primary-600 dark:text-primary-400 text-xs font-medium px-3 py-1 rounded-full mb-4'>
+              How it works
+            </div>
+            <h2 className='text-3xl font-semibold text-gray-900 dark:text-slate-100 mb-3 tracking-tight'>From raw reviews to boardroom-ready insights</h2>
+            <p className='text-gray-500 dark:text-slate-400 max-w-xl mx-auto'>Upload a CSV, and our pipeline does the rest. No training, no config, no waiting for a data team.</p>
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
             {[
-              { step: '01', title: 'Upload reviews', desc: 'Drop a CSV, Excel, or JSON file. We normalize columns automatically — author, rating, body, date.', light: 'bg-blue-50 text-blue-700', dark: 'dark:bg-blue-900/40 dark:text-blue-300' },
-              { step: '02', title: 'Extract aspects', desc: 'DeBERTa-v3 ABSA model identifies specific features mentioned — battery, camera, display — and scores sentiment per aspect.', light: 'bg-violet-50 text-violet-700', dark: 'dark:bg-violet-900/40 dark:text-violet-300' },
-              { step: '03', title: 'Detect patterns', desc: 'Co-occurrence analysis, conditional probability, and contrast signals surface which issues cluster together and why.', light: 'bg-amber-50 text-amber-700', dark: 'dark:bg-amber-900/40 dark:text-amber-300' },
-              { step: '04', title: 'Query & act', desc: 'Ask questions in plain English. A RAG pipeline retrieves relevant reviews and patterns, then generates evidence-backed answers.', light: 'bg-green-50 text-green-700', dark: 'dark:bg-green-900/40 dark:text-green-300' },
+              { step: '01', title: 'Upload reviews', desc: 'Drop a CSV, Excel, or JSON file. We normalize columns automatically — author, rating, body, date.', color: 'from-blue-500 to-blue-600', light: 'bg-blue-50 text-blue-700', dark: 'dark:bg-blue-900/30 dark:text-blue-300' },
+              { step: '02', title: 'Extract aspects', desc: 'DeBERTa-v3 ABSA model identifies specific features mentioned and scores sentiment per aspect.', color: 'from-violet-500 to-violet-600', light: 'bg-violet-50 text-violet-700', dark: 'dark:bg-violet-900/30 dark:text-violet-300' },
+              { step: '03', title: 'Detect patterns', desc: 'Co-occurrence analysis and contrast signals surface which issues cluster together and why.', color: 'from-amber-500 to-amber-600', light: 'bg-amber-50 text-amber-700', dark: 'dark:bg-amber-900/30 dark:text-amber-300' },
+              { step: '04', title: 'Query & act', desc: 'Ask questions in plain English. A RAG pipeline generates evidence-backed answers.', color: 'from-green-500 to-green-600', light: 'bg-green-50 text-green-700', dark: 'dark:bg-green-900/30 dark:text-green-300' },
             ].map((s, i) => (
-              <div key={i} className='relative'>
+              <div key={i} className='relative group'>
                 {i < 3 && (
-                  <div className='absolute top-8 left-full w-6 flex items-center justify-center z-10'>
+                  <div className='hidden md:flex absolute top-6 left-full w-8 items-center justify-center z-10'>
                     <svg className='w-4 h-4 text-gray-300 dark:text-slate-600' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                       <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
                     </svg>
                   </div>
                 )}
-                <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-semibold mb-4 ${s.light} ${s.dark}`}>{s.step}</div>
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl text-sm font-bold mb-5 ${s.light} ${s.dark} group-hover:scale-105 transition-transform`}>
+                  {s.step}
+                </div>
                 <h3 className='text-sm font-semibold text-gray-900 dark:text-slate-100 mb-2'>{s.title}</h3>
                 <p className='text-xs text-gray-500 dark:text-slate-400 leading-relaxed'>{s.desc}</p>
               </div>
@@ -157,10 +180,14 @@ const Landing = () => {
       </section>
 
       {/* ── Features ── */}
-      <section className='max-w-5xl mx-auto px-8 py-20'>
-        <p className='text-xs text-primary-600 dark:text-primary-400 font-medium uppercase tracking-wider text-center mb-3'>Features</p>
-        <h2 className='text-3xl font-semibold text-gray-900 dark:text-slate-100 text-center mb-14'>Everything a PM needs to act on feedback</h2>
-        <div className='grid grid-cols-3 gap-6'>
+      <section className='max-w-5xl mx-auto px-8 py-24'>
+        <div className='text-center mb-16'>
+          <div className='inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/20 border border-primary-100/80 dark:border-primary-800/30 text-primary-600 dark:text-primary-400 text-xs font-medium px-3 py-1 rounded-full mb-4'>
+            Features
+          </div>
+          <h2 className='text-3xl font-semibold text-gray-900 dark:text-slate-100 tracking-tight'>Everything a PM needs to act on feedback</h2>
+        </div>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
           {[
             { icon: 'M3 13h2l3-8 4 16 3-8h6', title: 'Aspect-based sentiment', desc: 'Not just "positive" or "negative". Know exactly which features customers love and which are bleeding.', detail: 'DeBERTa-v3-base fine-tuned for ABSA with 10 aspect categories.' },
             { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Root cause signals', desc: 'Conditional probability analysis reveals causal chains: "when users complain about X, 73% also report Y".', detail: 'Co-occurrence, conditional probability, and contrast pattern detection.' },
@@ -169,39 +196,45 @@ const Landing = () => {
             { icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M9 20H4v-2a3 3 0 015.356-1.857M15 7a3 3 0 11-6 0 3 3 0 016 0z', title: 'Multi-tenant', desc: 'Samsung sees Samsung data. Apple sees Apple data. Each team gets their own isolated workspace.', detail: 'JWT-based auth with client_id scoping on every query.' },
             { icon: 'M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12', title: 'Drag & drop upload', desc: 'Upload CSV, JSON, or Excel files per SKU. Auto-deduplication, column normalization, and async processing.', detail: 'Celery pipeline: clean → embed → ABSA → pattern detect.' },
           ].map((f, i) => (
-            <div key={i} className='group border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-800/50 rounded-xl p-6 hover:border-primary-400 dark:hover:border-primary-500 hover:shadow-sm transition-all'>
-              <div className='w-10 h-10 bg-primary-50 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-600 group-hover:text-white transition-colors'>
+            <div key={i} className='group border border-gray-100/80 dark:border-slate-700/40 bg-white/80 dark:bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-900/5 hover:border-primary-200/80 dark:hover:border-primary-500/40 transition-all duration-300'>
+              <div className='w-11 h-11 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/40 dark:to-primary-800/30 text-primary-600 dark:text-primary-400 rounded-2xl flex items-center justify-center mb-5 group-hover:from-primary-600 group-hover:to-primary-700 group-hover:text-white dark:group-hover:from-primary-500 dark:group-hover:to-primary-600 transition-all shadow-sm'>
                 <svg className='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d={f.icon} />
                 </svg>
               </div>
               <h3 className='text-sm font-semibold text-gray-900 dark:text-slate-100 mb-2'>{f.title}</h3>
-              <p className='text-xs text-gray-500 dark:text-slate-400 leading-relaxed mb-3'>{f.desc}</p>
-              <p className='text-[10px] text-gray-400 dark:text-slate-500 leading-relaxed border-t border-gray-50 dark:border-slate-700 pt-2'>{f.detail}</p>
+              <p className='text-xs text-gray-500 dark:text-slate-400 leading-relaxed mb-4'>{f.desc}</p>
+              <p className='text-[10px] text-gray-400 dark:text-slate-500 leading-relaxed border-t border-gray-50 dark:border-slate-700/50 pt-3'>{f.detail}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── Query demo — always dark ── */}
-      <section className='bg-gray-900'>
-        <div className='max-w-4xl mx-auto px-8 py-20'>
-          <p className='text-xs text-blue-400 font-medium uppercase tracking-wider text-center mb-3'>Ask Insights</p>
-          <h2 className='text-3xl font-semibold text-white text-center mb-4'>Talk to your reviews like a colleague</h2>
-          <p className='text-gray-400 text-center max-w-xl mx-auto mb-10'>Type a question, get an answer backed by real customer data and statistical patterns. Not vibes — evidence.</p>
-          <div className='bg-gray-800 rounded-2xl p-6'>
-            <div className='flex gap-2 mb-5'>
-              <div className='flex-1 bg-gray-700 rounded-lg px-4 py-3 text-sm text-gray-300'>Why are Galaxy S24 users complaining about overheating?</div>
-              <div className='bg-primary-600 text-white rounded-lg px-4 py-3 text-sm font-medium'>Ask →</div>
+      <section className='bg-gray-900 relative overflow-hidden'>
+        <div className='absolute inset-0 opacity-[0.03]' style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '20px 20px' }} />
+        <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary-500/10 rounded-full blur-[120px]' />
+        <div className='max-w-4xl mx-auto px-8 py-24 relative'>
+          <div className='text-center mb-12'>
+            <div className='inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-4'>
+              Ask Insights
             </div>
-            <div className='border border-gray-700 rounded-xl p-5'>
-              <p className='text-xs text-blue-400 font-medium uppercase tracking-wide mb-3'>Insights answer</p>
-              <p className='text-sm text-gray-200 leading-relaxed mb-4'>
+            <h2 className='text-3xl font-semibold text-white mb-3 tracking-tight'>Talk to your reviews like a colleague</h2>
+            <p className='text-gray-400 max-w-xl mx-auto'>Type a question, get an answer backed by real customer data and statistical patterns. Not vibes — evidence.</p>
+          </div>
+          <div className='bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50'>
+            <div className='flex gap-2 mb-5'>
+              <div className='flex-1 bg-gray-700/60 rounded-xl px-4 py-3.5 text-sm text-gray-300 border border-gray-600/30'>Why are Galaxy S24 users complaining about overheating?</div>
+              <div className='bg-primary-600 hover:bg-primary-500 text-white rounded-xl px-5 py-3.5 text-sm font-medium transition-colors cursor-pointer'>Ask</div>
+            </div>
+            <div className='border border-gray-700/50 rounded-xl p-5 bg-gray-800/50'>
+              <p className='text-[10px] text-blue-400 font-semibold uppercase tracking-wider mb-3'>Insights answer</p>
+              <p className='text-sm text-gray-200 leading-relaxed mb-5'>
                 Overheating reports correlate strongly with gaming sessions (73%) and extended camera use (61%). 48 out of 142 reviews mention thermal issues. The pattern co-occurs with battery drain complaints in 67% of cases, suggesting a shared root cause in power management.
               </p>
               <div className='flex gap-2'>
                 {['Review #847: "Phone gets really hot when gaming..."', 'Review #1203: "Battery and heat both worse after update..."'].map((e, i) => (
-                  <div key={i} className='flex-1 bg-gray-700 rounded-lg px-3 py-2 text-xs text-gray-400'>{e}</div>
+                  <div key={i} className='flex-1 bg-gray-700/40 rounded-xl px-3.5 py-2.5 text-xs text-gray-400 border border-gray-700/30'>{e}</div>
                 ))}
               </div>
             </div>
@@ -210,35 +243,38 @@ const Landing = () => {
       </section>
 
       {/* ── Tech stack ── */}
-      <section className='border-b border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900'>
+      <section className='border-b border-gray-100/80 dark:border-slate-700/40 bg-white dark:bg-slate-900'>
         <div className='max-w-5xl mx-auto px-8 py-16'>
-          <p className='text-xs text-gray-400 dark:text-slate-500 font-medium uppercase tracking-wider text-center mb-8'>Built with</p>
-          <div className='flex items-center justify-center gap-10 flex-wrap'>
+          <p className='section-label text-center mb-8'>Built with</p>
+          <div className='flex items-center justify-center gap-8 md:gap-12 flex-wrap'>
             {['DeBERTa-v3 ABSA','Sentence Transformers','Qdrant Vector DB','Mistral LLM','FastAPI','Celery','PostgreSQL','React + Vite'].map((t, i) => (
-              <span key={i} className='text-sm text-gray-400 dark:text-slate-500 font-medium'>{t}</span>
+              <span key={i} className='text-sm text-gray-400 dark:text-slate-500 font-medium hover:text-gray-600 dark:hover:text-slate-300 transition-colors cursor-default'>{t}</span>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className='max-w-3xl mx-auto px-8 py-24 text-center'>
-        <h2 className='text-3xl font-semibold text-gray-900 dark:text-slate-100 mb-4'>Ready to understand your customers?</h2>
-        <p className='text-gray-500 dark:text-slate-400 mb-8 max-w-md mx-auto'>Upload your first review dataset and get aspect-level insights in minutes, not weeks.</p>
-        <div className='flex items-center justify-center gap-3'>
-          <button className='btn-primary text-base px-8 py-3.5' onClick={() => navigate('/signup')}>Create free account →</button>
-          <button className='btn-secondary text-base px-8 py-3.5' onClick={() => navigate('/login')}>Sign in</button>
+      <section className='relative overflow-hidden'>
+        <div className='absolute inset-0 bg-gradient-to-b from-transparent via-primary-50/30 to-transparent dark:via-primary-900/10 -z-10' />
+        <div className='max-w-3xl mx-auto px-8 py-28 text-center'>
+          <h2 className='text-3xl font-semibold text-gray-900 dark:text-slate-100 mb-4 tracking-tight'>Ready to understand your customers?</h2>
+          <p className='text-gray-500 dark:text-slate-400 mb-8 max-w-md mx-auto'>Upload your first review dataset and get aspect-level insights in minutes, not weeks.</p>
+          <div className='flex items-center justify-center gap-3'>
+            <button className='btn-primary text-base px-8 py-3.5' onClick={() => navigate('/signup')}>Create free account</button>
+            <button className='btn-secondary text-base px-8 py-3.5' onClick={() => navigate('/login')}>Sign in</button>
+          </div>
         </div>
       </section>
 
       {/* ── Footer ── */}
-      <footer className='border-t border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900 py-8 px-8'>
+      <footer className='border-t border-gray-100/80 dark:border-slate-700/40 bg-white dark:bg-slate-900 py-8 px-8'>
         <div className='max-w-5xl mx-auto flex items-center justify-between'>
-          <div className='flex items-center gap-2'>
+          <div className='flex items-center gap-2.5'>
             <svg width='20' height='20' viewBox='0 0 28 28' fill='none'>
-              <rect width='28' height='28' rx='6' fill='#185FA5'/>
-              <polyline points='5,20 10,13 15,16 22,7' fill='none' stroke='#fff' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'/>
-              <circle cx='22' cy='7' r='2' fill='#60A5D4'/>
+              <rect width='28' height='28' rx='7' fill='#185FA5' />
+              <polyline points='5,20 10,13 15,16 22,7' fill='none' stroke='#fff' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+              <circle cx='22' cy='7' r='2' fill='#93c5fd' />
             </svg>
             <span className='text-sm font-medium text-gray-400 dark:text-slate-500'>Insights</span>
           </div>

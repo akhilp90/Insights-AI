@@ -22,5 +22,6 @@ celery_app.conf.update(
         'tasks.nlp':        {'queue': 'nlp'},
         'tasks.cluster':    {'queue': 'clustering'},
         'tasks.patterns':   {'queue': 'pattern_detection'},
+        'tasks.causal':     {'queue': 'causal_discovery'},
     },
 )

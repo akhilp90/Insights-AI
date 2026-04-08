@@ -14,6 +14,7 @@ from services.api_gateway.routes.product_routes import router as product_router
 from services.api_gateway.routes.client_routes import router as client_router
 from services.api_gateway.routes.upload_routes import router as upload_router
 from services.api_gateway.routes.query_routes import router as query_router
+from services.api_gateway.routes.causal_routes import router as causal_router
 
 
 def run_migrations():
@@ -68,6 +69,7 @@ app.include_router(product_router)
 app.include_router(client_router)
 app.include_router(upload_router)
 app.include_router(query_router)
+app.include_router(causal_router)
 
 
 @app.get('/health')

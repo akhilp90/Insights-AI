@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(timeout 10 python -c \"from services.query.main import app; print\\('Query service import OK'\\)\")",
+      "Bash(npx vite:*)"
+    ]
+  }
+}

@@ -32,7 +32,7 @@ async def proxy_query(req: QueryRequest, current_user: dict = Depends(get_curren
 
     payload = req.model_dump(exclude_none=True)
 
-    async with httpx.AsyncClient(timeout=300.0) as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(connect=10.0, read=600.0, write=10.0, pool=10.0)) as client:
         response = await client.post(
             f'{QUERY_URL}/query',
             json=payload,

@@ -33,31 +33,38 @@ const AddProduct = ({ onClose, onCreated }: Props) => {
   };
 
   return (
-    <div className='fixed inset-0 bg-black/40 flex items-center justify-center z-50'>
-      <div className='w-[420px] bg-white dark:bg-slate-800 rounded-2xl p-7 shadow-xl border border-gray-100 dark:border-slate-700'>
-        <div className='flex items-center justify-between mb-5'>
-          <h3 className='text-base font-medium dark:text-slate-100'>Add new product</h3>
-          <button onClick={onClose} className='text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300 text-lg'>&times;</button>
+    <div className='fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in-fast'>
+      <div className='w-[440px] bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-2xl border border-gray-100/80 dark:border-slate-700/50 animate-slide-up'>
+        <div className='flex items-center justify-between mb-6'>
+          <div>
+            <h3 className='text-base font-semibold dark:text-slate-100'>Add new product</h3>
+            <p className='text-xs text-gray-400 dark:text-slate-500 mt-0.5'>Create a product to start tracking reviews</p>
+          </div>
+          <button onClick={onClose} className='w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 dark:text-slate-500 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-600 dark:hover:text-slate-300 transition-all text-lg'>&times;</button>
         </div>
         <form onSubmit={handleSubmit}>
           <div className='mb-4'>
-            <label className='block text-xs text-gray-500 dark:text-slate-400 mb-1.5'>Product name</label>
-            <input type='text' value={name} onChange={e => setName(e.target.value)} placeholder='e.g. Galaxy S25' className='input-base w-full'/>
+            <label className='block text-xs font-medium text-gray-600 dark:text-slate-400 mb-2'>Product name</label>
+            <input type='text' value={name} onChange={e => setName(e.target.value)} placeholder='e.g. Galaxy S25' className='input-base w-full' />
           </div>
           <div className='mb-4'>
-            <label className='block text-xs text-gray-500 dark:text-slate-400 mb-1.5'>SKU code</label>
-            <input type='text' value={sku} onChange={e => setSku(e.target.value)} placeholder='e.g. SAM-S25-2025' className='input-base w-full'/>
+            <label className='block text-xs font-medium text-gray-600 dark:text-slate-400 mb-2'>SKU code</label>
+            <input type='text' value={sku} onChange={e => setSku(e.target.value)} placeholder='e.g. SAM-S25-2025' className='input-base w-full' />
           </div>
-          <div className='mb-4'>
-            <label className='block text-xs text-gray-500 dark:text-slate-400 mb-1.5'>Category</label>
+          <div className='mb-5'>
+            <label className='block text-xs font-medium text-gray-600 dark:text-slate-400 mb-2'>Category</label>
             <select value={category} onChange={e => setCategory(e.target.value)} className='input-base w-full'>
               {categories.map(c => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
             </select>
           </div>
-          {error && <p className='text-xs text-red-500 mb-3'>{error}</p>}
-          <div className='flex gap-2'>
+          {error && (
+            <div className='bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/40 rounded-lg px-3 py-2.5 mb-4'>
+              <p className='text-xs text-red-600 dark:text-red-400'>{error}</p>
+            </div>
+          )}
+          <div className='flex gap-2.5'>
             <button type='button' onClick={onClose} className='btn-secondary flex-1 py-2.5 text-sm'>Cancel</button>
-            <button type='submit' disabled={loading} className='btn-primary flex-1 py-2.5 text-sm disabled:opacity-50'>
+            <button type='submit' disabled={loading} className='btn-primary flex-1 py-2.5 text-sm'>
               {loading ? 'Creating...' : 'Add product'}
             </button>
           </div>
